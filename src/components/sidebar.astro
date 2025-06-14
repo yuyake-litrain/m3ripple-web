@@ -1,0 +1,51 @@
+---
+import SidebarSearchBar from '../components/SidebarSearchBar.tsx';
+import SidebarSelectButton from '../components/SidebarSelectButton.tsx';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+const docsEntries = await getCollection('docs');
+---
+
+<div class="sidebar_container">
+  <div class="float">
+    <SidebarSearchBar client:visible />
+  </div>
+  <div class="items">
+    {docsEntries.map((entry: CollectionEntry<'docs'>) => (
+      <SidebarSelectButton
+        iconifyIcon={entry.data.icon}
+        settingName={entry.data.title}
+        settingDesc={entry.data.desc}
+        href={entry.slug}
+        client:visible
+      />)
+    )}
+  </div>
+</div>
+
+<style>
+.sidebar_container {
+  overflow-y: auto;
+  background: #14100c;
+  padding: 25px;
+  height: 100%;
+  max-width: 600px;
+  width: 50%;
+  position: relative;
+  box-sizing: border-box;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 80px;
+}
+.float {
+  width: 50%;
+  max-width: 600px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+</style>
