@@ -17,7 +17,10 @@ const SidebarSelectButton = ({
       opacity_level1="0.4"
       opacity_level2="0.1"
     >
-      <Icon className={styles.icon} icon="material-symbols:arrow-back-rounded" />
+      <Icon
+        className={styles.icon}
+        icon="material-symbols:arrow-back-rounded"
+      />
     </RippleContainer>
   );
 };

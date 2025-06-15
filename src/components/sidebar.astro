@@ -10,9 +10,7 @@ const currentUrl = Astro.url.pathname;
 <script>
 const pathupdate = ({detail: {visit}}: {detail: any}) => {
     document.querySelectorAll("a[href].SidebarSelectButton").forEach((button) => {
-      if (
-      `/${button.getAttribute('href')}` === visit.to.url
-      ) {
+      if (`${button.getAttribute('href')}` === visit.to.url) {
         button.classList.add('selected')
       } else {
         button.classList.remove('selected')
@@ -39,8 +37,8 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
         iconifyIcon={entry.data.icon}
         settingName={entry.data.title}
         settingDesc={entry.data.desc}
-        href={entry.slug}
-        className={`/${entry.slug}` === currentUrl ? 'selected': ''}
+        href={`/${entry.slug}/`}
+        className={`/${entry.slug}/` === currentUrl ? 'selected': ''}
         client:visible
       />)
     )}

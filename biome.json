@@ -30,6 +30,11 @@
       "quoteStyle": "single"
     }
   },
+  "css": {
+    "parser": {
+      "cssModules": true
+    }
+  },
   "overrides": [
     {
       "include": ["*.astro"],

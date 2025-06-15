@@ -1,8 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
 import { Icon } from '@iconify/react';
-import BackIconButton from '../components/BackIconButton.tsx'
+import BackIconButton from '../components/BackIconButton.tsx';
+import Layout from '../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('docs');

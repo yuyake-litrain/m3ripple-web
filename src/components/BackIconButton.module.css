@@ -7,7 +7,6 @@
   justify-content: center;
   border-radius: 9999px;
 
-
   /* Workaround(m3ripple's css modules is not working) */
   overflow: hidden;
   position: relative;

@@ -8,7 +8,6 @@
   background: #4b4640;
   margin: 25px 0;
 
-
   /* Workaround(m3ripple's css modules is not working) */
   overflow: hidden;
   position: relative;
