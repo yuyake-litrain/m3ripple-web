@@ -5,6 +5,39 @@
   align-items: center;
   width: 100%;
   border-radius: 20px;
+
+
+  /* Workaround(m3ripple's css modules is not working) */
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+
+  & :global(.ripple) {
+    position: absolute;
+    border-radius: 100%;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  & :global(.sparkles_canvas) {
+    position: absolute;
+    user-select: none;
+  }
+}
+
+.link:global(.selected) .rippleContainer {
+  background: #dac3a1;
+  color: #181a16;
+  & .desc {
+    color: #181a16;
+  }
+  & .desc p {
+    color: #181a16dd;
+  }
 }
 
 .icon {

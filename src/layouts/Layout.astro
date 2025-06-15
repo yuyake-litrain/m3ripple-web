@@ -1,7 +1,21 @@
 ---
 import Sidebar from '../components/sidebar.astro';
 import '@fontsource-variable/inter';
+const currentUrl = Astro.url.pathname
 ---
+<script>
+const pathupdate = ({detail: {visit}}: {detail: any}) => {
+    const mainview = document.querySelector("div.main_view")
+    if (`/` !== visit.to.url) {
+      mainview?.classList.remove('necessary')
+    } else {
+      mainview?.classList.add('necessary')
+    }
+  }
+  
+  // @ts-ignore
+  document.addEventListener('swup:page:view', pathupdate)
+</script>
 
 <!doctype html>
 <html lang="en">
@@ -14,7 +28,9 @@ import '@fontsource-variable/inter';
   </head>
   <body>
     <Sidebar />
-    <slot />
+    <main class={currentUrl === "/" ? `main_view transition-up`: `main_view transition-up necessary`}>
+      <slot />
+    </main>
   </body>
 </html>
 
@@ -28,5 +44,46 @@ import '@fontsource-variable/inter';
     font-family: 'Inter Variable', sans-serif;
     display: flex;
     color: white;
+  }
+  main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  html.is-changing.to-down .transition-up {
+    transition: transform 0.5s cubic-bezier(0, 0.88, 0.59, 1);
+  }
+  html.is-animating.to-down.is-rendering .transition-up {
+    transform: translateY(-30px);
+  }
+
+  html.is-animating.to-down.is-leaving .transition-up {
+    transform: translateY(50px);
+    transition: transform 0.1s cubic-bezier(0, 0.47, 1, 0.03);
+  }
+
+  html.is-changing .transition-up {
+    transition: transform 0.5s cubic-bezier(0, 0.88, 0.59, 1);
+  }
+
+  html.is-changing {
+    overflow: hidden;
+  }
+
+  html.is-animating.is-rendering:not(.to-down) .transition-up {
+    transform: translateY(50px);
+  }
+
+  html.is-animating.is-leaving:not(.to-down) .transition-up {
+    transform: translateY(-30px);
+    transition: transform 0.1s cubic-bezier(0, 0.47, 1, 0.03);
+  }
+
+  @media screen and (max-width: 1140px) {
+    .main_view:not(.necessary) {
+      display: none;
+    }
   }
 </style>

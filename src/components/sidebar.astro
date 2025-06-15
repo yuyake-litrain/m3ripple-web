@@ -1,15 +1,38 @@
 ---
+import { type CollectionEntry, getCollection } from 'astro:content';
 import SidebarSearchBar from '../components/SidebarSearchBar.tsx';
 import SidebarSelectButton from '../components/SidebarSelectButton.tsx';
-import { getCollection, type CollectionEntry } from 'astro:content';
 
 const docsEntries = await getCollection('docs');
+const currentUrl = Astro.url.pathname;
 ---
 
-<div class="sidebar_container">
-  <div class="float">
-    <SidebarSearchBar client:visible />
-  </div>
+<script>
+const pathupdate = ({detail: {visit}}: {detail: any}) => {
+    document.querySelectorAll("a[href].SidebarSelectButton").forEach((button) => {
+      if (
+      `/${button.getAttribute('href')}` === visit.to.url
+      ) {
+        button.classList.add('selected')
+      } else {
+        button.classList.remove('selected')
+      }
+    })
+
+    const sidebar = document.querySelector("div.sidebar_container")
+    if (`/` !== visit.to.url) {
+      sidebar?.classList.remove('necessary')
+    } else {
+      sidebar?.classList.add('necessary')
+    }
+  }
+  
+  // @ts-ignore
+  document.addEventListener('swup:page:view', pathupdate)
+</script>
+
+<div class={currentUrl === "/" ? `sidebar_container necessary`: `sidebar_container`}>
+  <SidebarSearchBar client:visible />
   <div class="items">
     {docsEntries.map((entry: CollectionEntry<'docs'>) => (
       <SidebarSelectButton
@@ -17,6 +40,7 @@ const docsEntries = await getCollection('docs');
         settingName={entry.data.title}
         settingDesc={entry.data.desc}
         href={entry.slug}
+        className={`/${entry.slug}` === currentUrl ? 'selected': ''}
         client:visible
       />)
     )}
@@ -38,14 +62,14 @@ const docsEntries = await getCollection('docs');
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 80px;
 }
-.float {
-  width: 50%;
-  max-width: 600px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+@media screen and (max-width: 1140px) {
+  .sidebar_container:not(.necessary) {
+    display: none;
+  }
+  .sidebar_container {
+    width: 100%;
+    max-width: unset;
+  }
 }
 </style>

@@ -1,6 +1,8 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import Layout from '../layouts/Layout.astro'
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { Icon } from '@iconify/react';
+import BackIconButton from '../components/BackIconButton.tsx'
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection('docs');
@@ -14,7 +16,46 @@ const { entry } = Astro.props;
 const { Content } = await (entry as CollectionEntry<'docs'>).render();
 ---
 
+<script>
+  const pathupdate = () => {
+    const backBtn = document.querySelectorAll('.backButton');
+    backBtn.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        // @ts-ignore
+        window.swup.navigate('/', {animation: 'down'})
+      })
+    })
+  }
+  pathupdate()
+
+  document.addEventListener('swup:page:view', pathupdate)
+</script>
+
 <Layout>
-  <h1>{entry.data.title}</h1>
+  <div class="content">
+    <div class="topbar">
+      <div class='backButton'>
+        <BackIconButton client:load/>
+      </div>
+      <h1>{entry.data.title}</h1>
+    </div>
     <Content />
+  </div>
 </Layout>
+
+<style>
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topbar {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.goBack {
+  font-size: 2rem;
+}
+</style>

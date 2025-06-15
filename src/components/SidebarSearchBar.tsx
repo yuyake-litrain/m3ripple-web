@@ -5,6 +5,7 @@ import styles from './SidebarSearchBar.module.css';
 const SidebarSearchBar = () => {
   return (
     <RippleContainer
+      divProps={{ onClick: () => alert('not impremented') }}
       isMaterial3={true}
       className={styles.rippleContainer}
       rippleColor="hsla(29,81%,84%,0.15)"
