@@ -6,7 +6,7 @@ const currentUrl = Astro.url.pathname;
 <script>
 const pathupdate = ({detail: {visit}}: {detail: any}) => {
     const mainview = document.querySelector("div.main_view")
-    if (`/` !== visit.to.url) {
+    if (`/m3ripple-web/` !== visit.to.url) {
       mainview?.classList.remove('necessary')
     } else {
       mainview?.classList.add('necessary')
@@ -22,13 +22,12 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>m3ripple demo</title>
   </head>
   <body>
     <Sidebar />
-    <main class={currentUrl === "/" ? `main_view transition-up`: `main_view transition-up necessary`}>
+    <main class={currentUrl === "/m3ripple-web/" ? `main_view transition-up`: `main_view transition-up necessary`}>
       <slot />
     </main>
   </body>

@@ -7,8 +7,11 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <div class="container">
-    <h1>m3ripple</h1>
-    <p>Bring Material 3(You) Ripple Effect to your React projects!</p>
+    <div class="desc">
+      <h1>m3ripple</h1>
+      <p>Bring Material 3(You) Ripple Effect to your React projects!</p>
+      <p>This website was created to show an example of the use of m3ripple; only the components to give the ripple effect are included in the actual library.</p>
+    </div>
   </div>
 </Layout>
 
@@ -20,5 +23,15 @@ import Layout from '../layouts/Layout.astro';
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 60px;
+  text-align: center;
 }
 </style>
