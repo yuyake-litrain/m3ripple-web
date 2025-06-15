@@ -18,7 +18,7 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
     })
 
     const sidebar = document.querySelector("div.sidebar_container")
-    if (`/` !== visit.to.url) {
+    if (`/m3ripple-web/` !== visit.to.url) {
       sidebar?.classList.remove('necessary')
     } else {
       sidebar?.classList.add('necessary')
@@ -29,7 +29,7 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
   document.addEventListener('swup:page:view', pathupdate)
 </script>
 
-<div class={currentUrl === "/" ? `sidebar_container necessary`: `sidebar_container`}>
+<div class={currentUrl === "/m3ripple-web/" ? `sidebar_container necessary`: `sidebar_container`}>
   <SidebarSearchBar client:visible />
   <div class="items">
     {docsEntries.map((entry: CollectionEntry<'docs'>) => (
@@ -37,8 +37,8 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
         iconifyIcon={entry.data.icon}
         settingName={entry.data.title}
         settingDesc={entry.data.desc}
-        href={`/${entry.slug}/`}
-        className={`/${entry.slug}/` === currentUrl ? 'selected': ''}
+        href={`/m3ripple-web/${entry.slug}/`}
+        className={`/m3ripple-web/${entry.slug}/` === currentUrl ? 'selected': ''}
         client:visible
       />)
     )}
