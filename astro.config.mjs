@@ -6,5 +6,6 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://m-h-san.github.io',
   integrations: [react(), mdx(), swup({ theme: false, globalInstance: true })],
 });
