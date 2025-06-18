@@ -50,6 +50,21 @@
             transition: .3s;
         }
     }
+    & .rcon.ripple_example {
+        height: 100px;
+        background: #ffffff10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        border-radius: 20px;
+        user-select: none;
+        &.example_big {
+            margin: 20px 0;
+            height: 500px;
+        }
+    }
     & .rcon {
         /* Workaround(m3ripple's css modules is not working) */
         overflow: hidden;
