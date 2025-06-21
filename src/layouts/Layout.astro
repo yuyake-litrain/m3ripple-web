@@ -6,7 +6,7 @@ const currentUrl = Astro.url.pathname;
 <script>
 const pathupdate = ({detail: {visit}}: {detail: any}) => {
     const mainview = document.querySelector("div.main_view")
-    if (`/m3ripple-web/` !== visit.to.url) {
+    if (`/` !== visit.to.url) {
       mainview?.classList.remove('necessary')
     } else {
       mainview?.classList.add('necessary')
@@ -27,7 +27,7 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
   </head>
   <body>
     <Sidebar />
-    <main class={currentUrl === "/m3ripple-web/" ? `main_view transition-up`: `main_view transition-up necessary`}>
+    <main class={currentUrl === "/" ? `main_view transition-up`: `main_view transition-up necessary`}>
       <slot />
     </main>
   </body>
