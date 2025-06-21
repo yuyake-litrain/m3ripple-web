@@ -3,4 +3,40 @@ layout: ../../layouts/MDX.astro
 icon: material-symbols:star-shine-outline-rounded
 title: At a Glance
 desc: Look at features
+group: intro
+order: 0
 ---
+import { RippleContainer } from "@m_three_ui/m3ripple"
+
+## What's this?
+This is the website for the `m3ripple` library.
+m3ripple is a **React** library to show ripple effect like android 12 or later on the Web.
+
+## Features
+### On the Web
+✨ Ripple Effect with sparkle easily realized on the web
+### Well-Tuned
+😍 Well-tuned behavior with no faltering
+### Customizable
+🎨 Highly customizable in terms of ripple color, number of sparkles, clarity, etc.
+### High Speed
+⚡ High speed drawing for Sparkles by canvas
+### Material 2
+✅ Ripple effect in Material 2 is also supported
+
+## Try:
+You can experience this ripple effect over and over again!
+
+<RippleContainer
+    className="rcon ripple_example"
+    client:visible
+    >
+    test ripple!
+</RippleContainer>
+
+<RippleContainer
+    className="rcon ripple_example example_big"
+    client:visible
+    >
+    test ripple(big button)!
+</RippleContainer>

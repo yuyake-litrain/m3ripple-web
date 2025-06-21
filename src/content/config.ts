@@ -6,6 +6,8 @@ const docsCollection = defineCollection({
     icon: z.string(),
     title: z.string(),
     desc: z.string(),
+    group: z.string(),
+    order: z.number(),
   }),
 });
 

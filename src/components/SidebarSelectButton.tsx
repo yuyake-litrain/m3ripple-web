@@ -23,7 +23,7 @@ const SidebarSelectButton = ({
     >
       <RippleContainer
         isMaterial3={true}
-        className={styles.rippleContainer}
+        className={clsx(styles.rippleContainer, "rippleContainer")}
         rippleColor="hsla(29,97%,75%,0.15)"
         sparklesColorRGB="255 255 255"
         opacity_level1="0.4"

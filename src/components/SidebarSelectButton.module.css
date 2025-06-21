@@ -1,10 +1,11 @@
 .rippleContainer {
   color: white;
-  height: 80px;
+  height: 90px;
   display: flex;
   align-items: center;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 5px;
+  background: #423629;
 
   /* Workaround(m3ripple's css modules is not working) */
   overflow: hidden;
@@ -29,14 +30,7 @@
 }
 
 .link:global(.selected) .rippleContainer {
-  background: #dac3a1;
-  color: #181a16;
-  & .desc {
-    color: #181a16;
-  }
-  & .desc p {
-    color: #181a16dd;
-  }
+  background: #2e251c;
 }
 
 .icon {
@@ -51,7 +45,7 @@
   gap: 3px;
   & span {
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   & p {
@@ -63,4 +57,5 @@
 
 .link {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
