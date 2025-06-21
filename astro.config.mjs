@@ -6,8 +6,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://m-h-san.github.io',
-  base: '/m3ripple-web',
+  site: 'https://m3ripple.js.org',
+  base: '/',
   trailingSlash: 'always',
   integrations: [react(), mdx(), swup({ theme: false, globalInstance: true })],
 });
