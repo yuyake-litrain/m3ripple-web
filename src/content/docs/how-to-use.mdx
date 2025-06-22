@@ -53,3 +53,61 @@ const YourComponent = () => {
 
 export default YourComponent;
 ```
+## FAQ
+**The Ripple Effect looks broken. The ripple’s width and height seem to affect the layout of the child elements inside `RippleContainer`, as if the ripple doesn’t have `position: absolute`. What’s going on?**\
+\
+This is a known issue. It occurs when the CSS provided by the library fails to apply correctly.\
+\
+As a workaround, please assign a custom class via the className prop on RippleContainer, and apply the following CSS manually:
+
+```css
+.rippleContainer {
+  /* Workaround(m3ripple's css modules is not working) */
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+
+  & :global(.ripple) {
+    position: absolute;
+    border-radius: 100%;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  & :global(.sparkles_canvas) {
+    position: absolute;
+    user-select: none;
+  }
+}
+```
+This works only in environments where CSS is scoped using something like CSS Modules and supports :global().\
+If you're not using such an environment, please use the following alternative instead.\
+
+```css
+.rippleContainer {
+  /* Workaround(m3ripple's css modules is not working) */
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+
+  & .ripple {
+    position: absolute;
+    border-radius: 100%;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  & .sparkles_canvas {
+    position: absolute;
+    user-select: none;
+  }
+}
+```
