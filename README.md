@@ -1,7 +1,12 @@
-# Website for the m3ripple library
+<h1 align="center">📚 The m3ripple Website</h1>
+
+<p align="center">The website for the m3ripple library built with Astro.</p>
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/cbc3af4d-6567-4890-9afc-099b706f4ea5" alt="screenshot of the website" />
+</div>
 
 ## 🚀 Project Structure
-
 Inside of your Astro project, you'll see the following folders and files:
 
 ```text
