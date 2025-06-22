@@ -84,6 +84,24 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
     <p>First, let's open "At a Glance".</p>
   </div>
   <div class="items">
+    <div class="group_items" data-group-name="home">
+      <SidebarSelectButton
+        iconifyIcon="material-symbols:home-outline-rounded"
+        settingName="Home"
+        settingDesc="Let's get started."
+        href={`/`}
+        className={`/` === currentUrl ? 'selected home': 'home'}
+        client:visible
+      />
+      <SidebarSelectButton
+        iconifyIcon="material-symbols:home-outline-rounded"
+        settingName="Home"
+        settingDesc="Let's get started."
+        href={`/home/`}
+        className={`/home/` === currentUrl ? 'mobile home': 'mobile home'}
+        client:visible
+      />
+    </div>
     {entriesGrouped.map((group: GroupedEntry) => (
       <div class="group_items" data-group-name={group.groupName}>
         {group.entries.map((entry) => {
@@ -157,6 +175,13 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
     margin: 0;
   }
 }
+.group_items :global(a.mobile.home) {
+  display: none;
+}
+
+.group_items :global(a.home .rippleContainer) {
+  border-radius: 20px;
+}
 
 @media screen and (max-width: 1140px) {
   .sidebar_container:not(.necessary) {
@@ -168,6 +193,12 @@ const pathupdate = ({detail: {visit}}: {detail: any}) => {
   }
   .mobile-info {
     display: flex;
+  }
+  .group_items :global(a.home) {
+    display: none;
+  }
+  .group_items :global(a.mobile.home) {
+    display: revert;
   }
 }
 </style>

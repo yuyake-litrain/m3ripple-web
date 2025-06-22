@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomeComponent from '../components/homeComponent.astro'
+import RippleLink from '../components/RippleLink.tsx'
+---
+
+<Layout>
+  <div class="mobilepage_notice">
+    <div class="desc_container">
+      <h3>
+          This page is intended to be viewed on mobile devices.
+      </h3>
+      <span>
+      You can view the same content on the root of the this website.
+      </span>
+    </div>
+    <RippleLink href="/" className='hoge' client:visible>
+      Go to the `/` now!
+    </RippleLink>
+  </div>
+  <HomeComponent />
+</Layout>
+
+<style>
+.mobilepage_notice {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  background: #382e23;
+  padding: 20px 0;
+}
+
+h3, span {
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+span {
+  color: #ffffffbb;
+}
+
+.desc_container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media screen and (max-width: 1140px) {
+  .mobilepage_notice {
+      display: none;
+  }
+}
+</style>
