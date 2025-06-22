@@ -2,9 +2,32 @@
 import Layout from '../layouts/Layout.astro';
 import HomeComponent from '../components/homeComponent.astro'
 import RippleLink from '../components/RippleLink.tsx'
+import BackIconButton from '../components/BackIconButton.tsx'
 ---
 
+<script>
+  const pathupdate = () => {
+    const backBtn = document.querySelectorAll('.backButton');
+    backBtn.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        // @ts-ignore
+        window.swup.navigate('/', {animation: 'down'})
+      })
+    })
+  }
+  pathupdate()
+
+  document.addEventListener('swup:page:view', pathupdate)
+</script>
+
 <Layout>
+  <div class="content">
+    <div class="topbar">
+      <div class='backButton'>
+        <BackIconButton client:load/>
+      </div>
+      <h1>Home</h1>
+    </div>
   <div class="mobilepage_notice">
     <div class="desc_container">
       <h3>
@@ -19,6 +42,7 @@ import RippleLink from '../components/RippleLink.tsx'
     </RippleLink>
   </div>
   <HomeComponent />
+  </div>
 </Layout>
 
 <style>
@@ -55,6 +79,26 @@ span {
 @media screen and (max-width: 1140px) {
   .mobilepage_notice {
       display: none;
+  }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.topbar {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.goBack {
+  font-size: 2rem;
+}
+@media screen and (max-width: 730px) {
+  .topbar {
+    margin: 0 10px;
   }
 }
 </style>

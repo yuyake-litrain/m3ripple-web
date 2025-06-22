@@ -1,28 +1,207 @@
+---
+import RippleLink from '../components/RippleLink.tsx'
+import RippleTester from '../components/rippleTester.tsx'
+import { Icon } from '@iconify/react/dist/iconify.js'
+import IconLink from '../components/IconLink.tsx'
+---
+
 <div class="container">
-  <div class="desc">
-    <h1>m3ripple</h1>
-    <p>Bring Material 3(You) Ripple Effect to your React projects!</p>
-    <p>This website was created to show an example of the use of m3ripple; only the components to give the ripple effect are included in the actual library.</p>
+  <div class="hero">
+    <h1>Beautiful, fun, pleasant, like a native app!</h1>
+    <p>m3ripple is the great way to introduce beautiful ripple effect to your react projects!</p>
+    <div class="actions">
+      <RippleLink href='/at-a-glance/' client:load>Learn more...</RippleLink>
+      <RippleLink href='/examples/' client:load>Check Examples</RippleLink>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="iconContainer">
+          <Icon className="icon" icon="material-symbols:globe" client:load />
+        </div>
+        <h3>On the Web</h3>
+        <p>Ripple Effect with sparkle easily realized on the web</p>
+      </div>
+      <div class="feature">
+        <div class="iconContainer">
+          <Icon className="icon" icon="material-symbols:collections-bookmark-outline-rounded" client:load />
+        </div>
+        <h3>Well-Tuned</h3>
+        <p>Well-tuned behavior with no faltering.Touch devices supported.</p>
+      </div>
+      <div class="feature">
+        <div class="iconContainer">
+          <Icon className="icon" icon="material-symbols:fast-forward-outline-rounded" client:load />
+        </div>
+        <h3>High Speed</h3>
+        <p>High speed drawing for Sparkles by canvas.</p>
+      </div>
+    </div>
+  </div>
+  <div class="try">
+    <Icon className="icon" icon="tabler:sparkles" client:load />
+    <h2>Try Ripple here!</h2>
+    <div class="try-container">
+      <RippleTester client:load />
+    </div>
+  </div>
+  <div class="links_list">
+    <h3>Follow us!</h3>
+    <IconLink
+      iconifyIcon='simple-icons:github'
+      href='https://github.com/yuyake-litrain/m3ripple'
+      client:visible
+    />
+    <IconLink
+      iconifyIcon='simple-icons:npm'
+      href='https://www.npmjs.com/package/@m_three_ui/m3ripple'
+      client:visible
+    />
+  </div>
+  <div class="divider"></div>
+  <div class="notice_site">
+    <span>This website was created to show an example of the use of m3ripple; only the components to give the ripple effect are included in the actual library.</span>
+    <a class="copyright" href="https://github.com/yuyake-litrain/m3ripple-web/blob/main/LICENSE">
+      <span>MIT Licensed</span>
+    </a>
   </div>
 </div>
 
 <style>
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  overflow-y: auto;
+  padding: 80px 0 100px 0;
   height: 100%;
 }
-.desc {
+.hero {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 60px;
+  & h1 {
+    font-size: 4rem;
+    padding: 0;
+    margin: 0;
+  }
+  & p {
+    font-size: 1.2rem;
+    color: #ffffffbb;
+  }
+}
+
+.divider {
+  border: none;
+  width: 100%;
+  height: 1px;
+  background: #ffffff22;
+}
+
+.notice_site {
+  margin: 20px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #ffffff90;
+  line-height: 1.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+}
+
+.try, .try-container {
+  width: 100%;
+}
+
+.try {
+  width: 100%;
+  margin: 80px 0;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  & h2 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  & :global(.icon) {
+    font-size: 3rem;
+  }
+}
+
+.try-container {
+  max-width: 600px;
+  border: 1px solid #ffffff20;
+  border-radius: 30px;
+  padding: 10px;
+}
+.features {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  & .feature {
+    background: #3b3528;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & h3, & p {
+      padding: 0;
+      margin: 0;
+    }
+    & .iconContainer {
+      font-size: 2rem;
+    }
+  }
+}
+
+.links_list {
+  display: flex;
   justify-content: center;
-  margin: 0 auto;
-  max-width: 900px;
-  padding: 0 60px;
-  text-align: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 50px;
+  & h3 {
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+  }
+}
+.copyright {
+  color: #f7ca9a;
+  text-decoration: underline;
+  &:active {
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 1825px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 735px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .hero {
+    padding: 20px;
+    & h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 495px) {
+  .actions {
+    flex-direction: column;
+  }
 }
 </style>
