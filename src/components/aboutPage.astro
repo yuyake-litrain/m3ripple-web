@@ -1,0 +1,162 @@
+---
+import { RippleContainer } from '@m_three_ui/m3ripple';
+import ListLinkItem from '../components/ListLinkItem.tsx';
+---
+<div class="top_hero">
+    <RippleContainer className="RippleContainer" client:load></RippleContainer>
+    <div class="container">
+        <h1>✨ m3ripple</h1>
+        <p>Bring Material 3(You) Ripple Effect to your <b>React</b> projects!</p>
+    </div>
+</div>
+<h2>Library</h2>
+<ListLinkItem
+    iconifyIcon="simple-icons:github"
+    href="https://github.com/yuyake-litrain/m3ripple"
+    itemTitle="Github Repository"
+    itemDesc="yuyake-litrain/m3ripple: Bring Material 3(You) Ripple Effect to your React projects!"
+    client:visible />
+<ListLinkItem
+    iconifyIcon="simple-icons:npm"
+    href="https://www.npmjs.com/package/@m_three_ui/m3ripple"
+    itemTitle="NPM Registry"
+    itemDesc="@m_three_ui/m3ripple"
+    client:visible />
+<ListLinkItem
+    iconifyIcon="material-symbols:person-outline-rounded"
+    href="https://github.com/yuyake-litrain"
+    itemTitle="Author"
+    itemDesc="yuyake-litrain (Litrain)"
+    client:visible />
+<ListLinkItem
+    iconifyIcon="material-symbols:person-outline-rounded"
+    href="https://github.com/yuyake-litrain"
+    itemTitle="Contributor"
+    itemDesc="yuyake-litrain (Litrain)"
+    client:visible />
+<ListLinkItem
+    href="https://github.com/yuyake-litrain/m3ripple"
+    itemTitle="Pull Requests/Issues are welcome!"
+    client:visible />
+
+
+<h2>This Website</h2>
+<ListLinkItem
+    iconifyIcon="simple-icons:github"
+    href="https://github.com/yuyake-litrain/m3ripple-web"
+    itemTitle="Github Repository"
+    itemDesc="yuyake-litrain/m3ripple-web: Website for the m3ripple library"
+    client:visible />
+<ListLinkItem
+    iconifyIcon="material-symbols:person-outline-rounded"
+    href="https://github.com/yuyake-litrain"
+    itemTitle="Author"
+    itemDesc="yuyake-litrain (Litrain)"
+    client:visible />
+<ListLinkItem
+    iconifyIcon="material-symbols:person-outline-rounded"
+    href="https://github.com/yuyake-litrain"
+    itemTitle="Contributor"
+    itemDesc="yuyake-litrain (Litrain)"
+    client:visible />
+<ListLinkItem
+    href="https://github.com/yuyake-litrain/m3ripple-web"
+    itemTitle="Pull Requests/Issues are welcome!"
+    client:visible />
+
+<div class="bottom">
+    This site was built with&nbsp;
+    <a href="https://astro.build/">
+        <RippleContainer className="RippleContainer" client:load>Astro</RippleContainer>
+    </a>
+</div>
+
+<style>
+h2, h3 {
+    margin-left: 30px;
+}
+.bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #ffffff33;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+a {
+    color: #f7ca9a;
+    &:active {
+        text-decoration: none;
+    }
+    & :global(.RippleContainer) {
+      /* Workaround(m3ripple's css modules is not working) */
+      overflow: hidden;
+      position: relative;
+      z-index: 0;
+    
+      & :global(.ripple) {
+        position: absolute;
+        border-radius: 100%;
+        z-index: -1;
+        transform: translateX(-50%) translateY(-50%);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+      & :global(.sparkles_canvas) {
+        position: absolute;
+        user-select: none;
+      }
+    }
+}
+h2 {
+    color: #f7ca9a;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-top: 30px;
+}
+.top_hero {
+    background: #ffffff20;
+    margin: 60px 30px 0px 30px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    & h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
+    & :global(.RippleContainer) {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    & .container {
+        padding: 20px 50px;
+    }
+    & :global(.RippleContainer) {
+      /* Workaround(m3ripple's css modules is not working) */
+      overflow: hidden;
+      z-index: 0;
+    
+      & :global(.ripple) {
+        position: absolute;
+        border-radius: 100%;
+        z-index: -1;
+        transform: translateX(-50%) translateY(-50%);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+      }
+      & :global(.sparkles_canvas) {
+        position: absolute;
+        user-select: none;
+      }
+    }
+}
+</style>

@@ -1,0 +1,56 @@
+.rippleContainer {
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 30px;
+  gap: 20px;
+
+  /* Workaround(m3ripple's css modules is not working) */
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+
+  & :global(.ripple) {
+    position: absolute;
+    border-radius: 100%;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+  & :global(.sparkles_canvas) {
+    position: absolute;
+    user-select: none;
+  }
+  & .icon {
+    flex-shrink: 0;
+  }
+  & .descContainer {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    & span {
+      &.title {
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+      }
+      &.desc {
+        color: #ffffffcc;
+      }
+    }
+  }
+}
+
+.icon {
+  font-size: 1.7rem;
+}
+
+a.link {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}

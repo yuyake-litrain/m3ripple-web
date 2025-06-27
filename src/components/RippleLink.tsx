@@ -7,7 +7,7 @@ const SidebarSelectButton = ({
   iconifyIcon,
   href,
   className,
-  children
+  children,
 }: {
   iconifyIcon?: string;
   href: string;
@@ -27,12 +27,8 @@ const SidebarSelectButton = ({
         opacity_level1="0.4"
         opacity_level2="0.1"
       >
-        {iconifyIcon &&
-          <Icon className={styles.icon} icon={iconifyIcon} />
-        }
-        <div className={styles.desc}>
-          {children}
-        </div>
+        {iconifyIcon && <Icon className={styles.icon} icon={iconifyIcon} />}
+        <div className={styles.desc}>{children}</div>
       </RippleContainer>
     </a>
   );

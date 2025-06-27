@@ -1,14 +1,18 @@
 import { Icon } from '@iconify/react';
 import { RippleContainer } from '@m_three_ui/m3ripple';
 import clsx from 'clsx';
-import styles from './IconLink.module.css';
+import styles from './ListLinkItem.module.css';
 
 const SidebarSelectButton = ({
   iconifyIcon,
+  itemTitle,
+  itemDesc,
   className,
   href,
 }: {
-  iconifyIcon: string;
+  iconifyIcon?: string;
+  itemTitle: string;
+  itemDesc?: string;
   className?: string;
   href: string;
 }) => {
@@ -25,7 +29,11 @@ const SidebarSelectButton = ({
         opacity_level1="0.4"
         opacity_level2="0.1"
       >
-        <Icon className={styles.icon} icon={iconifyIcon} />
+        {iconifyIcon && <Icon className={styles.icon} icon={iconifyIcon} />}
+        <div className={styles.descContainer}>
+          <span className={styles.title}>{itemTitle}</span>
+          {itemDesc && <span className={styles.desc}>{itemDesc}</span>}
+        </div>
       </RippleContainer>
     </a>
   );

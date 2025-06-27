@@ -1,14 +1,14 @@
-import { RippleContainer } from "@m_three_ui/m3ripple";
-import styles from "./rippleTester.module.css";
-import { useState } from "react";
-import { useReward } from "react-rewards";
+import { RippleContainer } from '@m_three_ui/m3ripple';
+import { useState } from 'react';
+import { useReward } from 'react-rewards';
+import styles from './rippleTester.module.css';
 
 const rippleTester = () => {
-  const { reward } = useReward("rewardId", "confetti", {
-    colors: ["#ffae00", "#ac7600", "#ac4a00", "#ffe600", "#a47100"],
-        spread: 120,
-        lifetime: 60,
-    decay: 0.92
+  const { reward } = useReward('rewardId', 'confetti', {
+    colors: ['#ffae00', '#ac7600', '#ac4a00', '#ffe600', '#a47100'],
+    spread: 120,
+    lifetime: 60,
+    decay: 0.92,
   });
   const [isConfettiEnabled, setIsConfettiEnabled] = useState<boolean>(true);
 
@@ -25,7 +25,7 @@ const rippleTester = () => {
           },
         }}
       >
-        <span id="rewardId" className={styles.confettiOrigin}></span>
+        <span id="rewardId" className={styles.confettiOrigin} />
         RippleContainer component
       </RippleContainer>
 

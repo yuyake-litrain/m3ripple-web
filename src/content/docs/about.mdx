@@ -1,31 +1,12 @@
 ---
-layout: ../../layouts/MDX.astro
 icon: material-symbols:info-outline-rounded
 title: About
 desc: About this library
 group: about
 order: 0
 ---
+import AboutPage from "../../components/aboutPage.astro";
 
-<h1>✨ m3ripple</h1>
-<p>Bring Material 3(You) Ripple Effect to your <b>React</b> projects!</p>
-
-## Library
-### GitHub Repository
-[yuyake-litrain/m3ripple: Bring Material 3(You) Ripple Effect to your React projects!](https://github.com/yuyake-litrain/m3ripple)
-### Author
-[yuyake-litrain (Litrain)](https://github.com/yuyake-litrain)
-### Contributor
-[yuyake-litrain (Litrain)](https://github.com/yuyake-litrain)  
-[Pull requests/Issues are welcome!](https://github.com/yuyake-litrain/m3ripple)
-
-## This Website
-### GitHub Repository
-[yuyake-litrain/m3ripple-web: Website for the m3ripple library](https://github.com/yuyake-litrain/m3ripple-web)
-### Author
-[yuyake-litrain (Litrain)](https://github.com/yuyake-litrain)
-### Contributor
-[yuyake-litrain (Litrain)](https://github.com/yuyake-litrain)  
-[Pull requests/Issues are welcome!](https://github.com/yuyake-litrain/m3ripple-web)
-
-This site was built with [Astro](https://astro.build/)
+<article style="overflow-y:auto;height:100%;" id="article_container" class="is-nomdx aboutPage">
+<AboutPage />
+</article>
