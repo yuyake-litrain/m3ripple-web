@@ -9,19 +9,24 @@ order: 0
 import { RippleContainer } from "@m_three_ui/m3ripple"
 import { Image } from "astro:assets";
 import browsers from "../../assets/Browsers.png";
+import settings from "../../assets/Settings_withCA.webp";
+import fast from "../../assets/Fast_withCA.webp";
+import wellTuned from "../../assets/Well-Tuned.webp";
+import material2 from "../../assets/Material 2.webp";
 
 ## What's this?
 This is the website for the `m3ripple` library. \
 `m3ripple` is a **React** library to show ripple effect like android 12 or later on the Web.
 
 ## Why m3ripple?
-<Image src={browsers} alt="many browsers" />
 ### On the Web
+<Image src={browsers} alt="many browsers" />
 You can implement beautiful ripple effect with **Sparkle Effect** easily to your Web Projects. \
 `m3ripple` provides the `RippleContainer` component. \
 Simply wrap the element to which you want to apply the ripple effect with it.
 
 ### Well-Tuned
+<Image src={wellTuned} alt="well tuned image" />
 Implementing even a basic version of the Ripple Effect can be a surprisingly complex task. And as you aim to improve its completeness and polish, things get even more complicated.\
 \
 For example, when a `touchstart` event is triggered on a touch-enabled device, should the Ripple Effect always be rendered?\
@@ -35,6 +40,7 @@ Handling all these different cases — especially if this interaction is not the
 That’s exactly why you should consider using **m3ripple**.
 
 ### Customizable
+<Image src={settings} alt="many settings" />
 m3ripple offers a variety of customization options for the Ripple Effect.\
 \
 To implement the Ripple Effect, you need to wrap your target element with a `RippleContainer`. Not only can you add a className to this container, but you can also control a wide range of properties — including the Ripple color, sparkle color, amount, opacity transitions, and even a callback function to be executed just before the effect is triggered.\
@@ -42,6 +48,7 @@ To implement the Ripple Effect, you need to wrap your target element with a `Rip
 Additionally, since RippleContainer ultimately renders as a `div` element, you can freely pass in almost any native div properties you need.
 
 ### High Speed
+<Image src={fast} alt="fast" />
 The Ripple Effect is rendered using the Web Animations API, while the sparkles are drawn on a single `<canvas>` element.\
 \
 This approach is significantly more efficient compared to alternatives such as using a large number of `<div>` elements or multiple canvas layers — both of which I had previously experimented with.\
@@ -49,6 +56,7 @@ This approach is significantly more efficient compared to alternatives such as u
 Before switching to this rendering method, it was difficult to achieve smooth sparkle animations in Firefox. However, with the current implementation, performance is now within a practical range (and on Chromium-based browsers, the experience is very smooth).
 
 ### Material 2
+<Image src={material2} alt="material2" />
 Want to use the Ripple Effect from Material 2?\
 \
 While it's not actively maintained and therefore not recommended, I’ve prepared a carefully recreated version — and it works reliably!\
