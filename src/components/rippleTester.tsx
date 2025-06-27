@@ -26,7 +26,7 @@ const rippleTester = () => {
         }}
       >
         <span id="rewardId" className={styles.confettiOrigin} />
-        RippleContainer component
+        <span className={styles.componentName}>RippleContainer component</span>
       </RippleContainer>
 
       <label>

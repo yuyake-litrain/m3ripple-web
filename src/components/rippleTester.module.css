@@ -39,3 +39,10 @@
   align-items: center;
   gap: 10px;
 }
+
+.componentName {
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 20px;
+}
