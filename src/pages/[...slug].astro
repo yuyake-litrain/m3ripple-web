@@ -36,7 +36,7 @@ const { Content } = await (entry as CollectionEntry<'docs'>).render();
       <div class='backButton'>
         <BackIconButton client:load/>
       </div>
-      <h1>{entry.data.title}</h1>
+      <span>{entry.data.title}</span>
     </div>
     <Content />
   </div>
@@ -54,6 +54,11 @@ const { Content } = await (entry as CollectionEntry<'docs'>).render();
   display: flex;
   align-items: center;
   gap: 1rem;
+  & span{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 20px 0;
+  }
 }
 .goBack {
   font-size: 2rem;
