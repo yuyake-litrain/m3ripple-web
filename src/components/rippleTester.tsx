@@ -9,35 +9,38 @@ const rippleTester = () => {
     spread: 120,
     lifetime: 60,
     decay: 0.92,
-    position: "absolute"
+    position: 'absolute',
   });
   const [isConfettiEnabled, setIsConfettiEnabled] = useState<boolean>(true);
 
   return (
     <div className={styles.container}>
       <span id="rewardId" className={styles.confettiOrigin} />
-      <RippleContainer
-        className={styles.ripple_container}
-        sparklesColorRGB="255 255 255"
-        opacity_level1="0.4"
-        opacity_level2="0.1"
-        divProps={{
-          onClick: () => {
-            if (isConfettiEnabled) reward();
-          },
-        }}
-      >
-        <span className={styles.componentName}>RippleContainer component</span>
-      </RippleContainer>
-
-      <label>
-        <input
-          type="checkbox"
-          checked={isConfettiEnabled}
-          onChange={(e) => setIsConfettiEnabled(e.target.checked)}
-        />
-        Enable Confetti
-      </label>
+      <div className={styles.textElements}>
+        <RippleContainer
+          className={styles.ripple_container}
+          sparklesColorRGB="255 255 255"
+          opacity_level1="0.4"
+          opacity_level2="0.1"
+          divProps={{
+            onClick: () => {
+              if (isConfettiEnabled) reward();
+            },
+          }}
+        >
+          <span className={styles.componentName}>
+            RippleContainer component
+          </span>
+        </RippleContainer>
+        <label>
+          <input
+            type="checkbox"
+            checked={isConfettiEnabled}
+            onChange={(e) => setIsConfettiEnabled(e.target.checked)}
+          />
+          Enable Confetti
+        </label>
+      </div>
     </div>
   );
 };

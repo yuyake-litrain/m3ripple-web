@@ -13,7 +13,7 @@
 
   /* Workaround(m3ripple's css modules is not working) */
   overflow: hidden;
-  position: absolute;
+  position: relative;
   z-index: 0;
 
   & :global(.ripple) {
@@ -56,4 +56,12 @@
   top: 50%;
   left: 50%;
   overflow: visible;
+}
+
+.textElements {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
 }
