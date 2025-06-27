@@ -13,7 +13,7 @@
 
   /* Workaround(m3ripple's css modules is not working) */
   overflow: hidden;
-  position: relative;
+  position: absolute;
   z-index: 0;
 
   & :global(.ripple) {
@@ -34,10 +34,12 @@
 }
 
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  overflow: visible;
 }
 
 .componentName {
@@ -45,4 +47,13 @@
   text-align: center;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.confettiOrigin {
+  pointer-events: none;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: visible;
 }

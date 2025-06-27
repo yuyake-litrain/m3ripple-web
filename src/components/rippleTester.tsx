@@ -9,11 +9,13 @@ const rippleTester = () => {
     spread: 120,
     lifetime: 60,
     decay: 0.92,
+    position: "absolute"
   });
   const [isConfettiEnabled, setIsConfettiEnabled] = useState<boolean>(true);
 
   return (
     <div className={styles.container}>
+      <span id="rewardId" className={styles.confettiOrigin} />
       <RippleContainer
         className={styles.ripple_container}
         sparklesColorRGB="255 255 255"
@@ -25,7 +27,6 @@ const rippleTester = () => {
           },
         }}
       >
-        <span id="rewardId" className={styles.confettiOrigin} />
         <span className={styles.componentName}>RippleContainer component</span>
       </RippleContainer>
 
