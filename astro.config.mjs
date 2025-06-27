@@ -10,4 +10,9 @@ export default defineConfig({
   base: '/',
   trailingSlash: 'always',
   integrations: [react(), mdx(), swup({ theme: false, globalInstance: true })],
+  markdown: {
+    shikiConfig: {
+      theme: 'gruvbox-dark-soft',
+    }
+  }
 });

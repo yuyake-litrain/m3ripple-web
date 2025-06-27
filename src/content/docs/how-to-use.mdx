@@ -7,6 +7,7 @@ group: use
 order: 0
 ---
 import { RippleContainer } from "@m_three_ui/m3ripple"
+import { Code } from 'astro:components';
 
 ## Getting Started
 ### Install
@@ -17,15 +18,15 @@ bun install @m_three_ui/m3ripple
 #### Others
 <details>
   <summary><RippleContainer className="rcon" client:visible>npm</RippleContainer></summary>
-  <pre>npm i @m_three_ui/m3ripple</pre>
+  <Code code={`npm i @m_three_ui/m3ripple`} lang="bash" />
 </details>
 <details>
   <summary><RippleContainer className="rcon" client:visible>pnpm</RippleContainer></summary>
-  <pre>pnpm add @m_three_ui/m3ripple</pre>
+  <Code code={`pnpm add @m_three_ui/m3ripple`} lang="bash" />
 </details>
 <details>
   <summary><RippleContainer className="rcon" client:visible>Yarn</RippleContainer></summary>
-  <pre>yarn add @m_three_ui/m3ripple</pre>
+  <Code code={`yarn add @m_three_ui/m3ripple`} lang="bash" />
 </details>
 
 ### Use
