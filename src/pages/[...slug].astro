@@ -24,8 +24,25 @@ const { Content } = await (entry as CollectionEntry<'docs'>).render();
         window.swup.navigate('/', {animation: 'down'})
       })
     })
-  }
-  pathupdate()
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry)=>{
+        (document.querySelector('.topbar') as HTMLDivElement).style.background = `rgba(66 54 41 / ${1.0 - (entry.intersectionRatio + 0.6 * entry.intersectionRatio)})`;
+        (document.querySelector('.topbar span') as HTMLDivElement).style.color = `rgba(255 255 255 / ${1.0 - (entry.intersectionRatio + 0.8 * entry.intersectionRatio)})`;
+        })
+    },
+        {
+            root: document.querySelector('#article_container'),
+            rootMargin: "0px",
+            threshold: [1, 0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.65, 0.60, 0.5, 0.45, 0.40, 0.35, 0.30, 0.25, 0.20, 0.15, 0.10, 0.05, 0]
+        }
+    )
+
+    document.querySelectorAll('.top_bigIntro').forEach((target)=> {
+        observer.observe(target);
+    })
+}
+pathupdate()
 
   document.addEventListener('swup:page:view', pathupdate)
 </script>
@@ -49,8 +66,8 @@ const { Content } = await (entry as CollectionEntry<'docs'>).render();
   flex-direction: column;
 }
 .topbar {
-  background: #423629;
-  padding: 0 30px;
+  background: transparent;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -58,6 +75,8 @@ const { Content } = await (entry as CollectionEntry<'docs'>).render();
     font-size: 1.5rem;
     font-weight: 600;
     margin: 20px 0;
+    color: transparent;
+    user-select: none;
   }
 }
 .goBack {

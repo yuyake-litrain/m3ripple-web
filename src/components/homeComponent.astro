@@ -3,9 +3,36 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import IconLink from '../components/IconLink.tsx';
 import RippleLink from '../components/RippleLink.tsx';
 import RippleTester from '../components/rippleTester.tsx';
+
+const currentUrl = Astro.url.pathname;
 ---
+<script>
+
+const pathupdate = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry)=>{
+            (entry.target as HTMLDivElement).style.opacity = (entry.intersectionRatio - 0.6 * (1 - entry.intersectionRatio)).toString()
+        })
+    },
+        {
+            root: document.querySelector('#article_container'),
+            rootMargin: "0px",
+            threshold: [1, 0.95, 0.90, 0.85, 0.80, 0.75, 0.70, 0.65, 0.60, 0.5, 0.45, 0.40, 0.35, 0.30, 0.25, 0.20, 0.15, 0.10, 0.05, 0]
+        }
+    )
+    document.querySelectorAll('.top_bigIntro').forEach((target)=> {
+        observer.observe(target);
+    })
+}
+pathupdate()
+
+document.addEventListener('swup:page:view', pathupdate)
+</script>
 
 <div class="container">
+  {currentUrl === "/home/" && <div class="top_bigIntro">
+      <span class="title_top">Home</span>
+  </div>}
   <div class="hero">
     <h1>Beautiful, fun, pleasant, like a native app!</h1>
     <p>m3ripple is the great way to introduce beautiful ripple effect to your react projects!</p>
@@ -180,6 +207,15 @@ import RippleTester from '../components/rippleTester.tsx';
   }
 }
 
+.top_bigIntro {
+    padding-top: 80px;
+    margin: 0 60px 50px 60px;
+}
+.title_top {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 1825px) {
   .features {
     grid-template-columns: 1fr 1fr;
@@ -197,6 +233,9 @@ import RippleTester from '../components/rippleTester.tsx';
     & h1 {
       font-size: 3rem;
     }
+  }
+  .top_bigIntro {
+      margin: 0 20px 50px 20px;
   }
 }
 

@@ -7,12 +7,15 @@ group: intro
 order: 0
 ---
 import { RippleContainer } from "@m_three_ui/m3ripple"
+import { Image } from "astro:assets";
+import browsers from "../../assets/Browsers.png";
 
 ## What's this?
 This is the website for the `m3ripple` library. \
 `m3ripple` is a **React** library to show ripple effect like android 12 or later on the Web.
 
 ## Why m3ripple?
+<Image src={browsers} alt="many browsers" />
 ### On the Web
 You can implement beautiful ripple effect with **Sparkle Effect** easily to your Web Projects. \
 `m3ripple` provides the `RippleContainer` component. \
@@ -52,19 +55,5 @@ While it's not actively maintained and therefore not recommended, I’ve prepare
 \
 All you need to do is pass false to the `isMaterial3` option on `RippleContainer`.
 
-## Try:
-You can experience this ripple effect over and over again!
-
-<RippleContainer
-    className="rcon ripple_example"
-    client:visible
-    >
-    test ripple!
-</RippleContainer>
-
-<RippleContainer
-    className="rcon ripple_example example_big"
-    client:visible
-    >
-    test ripple(big button)!
-</RippleContainer>
+## Try
+You can try it out on the [Examples page](/examples/).
